@@ -21,6 +21,27 @@ namespace LAB_1_PER_3
 
             flowers.RemoveAt(index);
         }
+
+        public void RemoveWithered()
+        {
+            int size = flowers.Count();
+            for (int i = 0; i < size; i++)
+            {
+                if (flowers[i].State==0)
+                {
+                    try
+                    {
+                        RemoveFlower(i);
+                        size--; i--;
+                    }
+                    catch (ArgumentException e) { Console.WriteLine(e.Message); }
+                }
+            }
+
+
+        }
+
+
         public double GetBasePrice()
         {
             double s = 0;
@@ -55,7 +76,7 @@ namespace LAB_1_PER_3
             for (int i = 0; i < size; i++)
                 flowers[i].InWater=iWater;
         }
-        public void moveInnerClock(int hours)
+        public void MoveInnerClock(int hours)
         {
             int size = flowers.Count();
             for (int i = 0; i < size; i++)
@@ -68,12 +89,24 @@ namespace LAB_1_PER_3
                     throw e;
                 }
         }
-        public void print()
+        public double GetState()
         {
-            Console.WriteLine("\n\nБукет:") ;
+            double s = 0;
+            int size = flowers.Count();
+            if (size<=0) return 0;
+            for (int i = 0; i < size; i++)
+                s += flowers[i].State;
+            return s / size;
+        }
+
+        public void PrintBouguet()
+        {
+            Console.WriteLine("\n\nБукет:\n");
             int size = flowers.Count();
             for (int i = 0; i < size; i++)
             {
+                int numFl = i + 1;
+                Console.WriteLine("Цветок № {0}", numFl);
                 Console.WriteLine("Название: {0}", flowers[i].Name);
                 Console.WriteLine("Цвет: {0}", flowers[i].Color);
                 Console.WriteLine("Состояние цветка: {0}", flowers[i].State);
@@ -88,18 +121,11 @@ namespace LAB_1_PER_3
                     Console.WriteLine("Цветок находится на воздухе");
 
                 if (flowers[i].State == 0)
-                    Console.WriteLine("Цветок завял");
+                    Console.WriteLine("Цветок завял\n");
                 else
-                    Console.WriteLine("Цветок не завял");
+                    Console.WriteLine("Цветок не завял\n");
             }
 
         }
-
-
-
-
-
-
-
     }
 }

@@ -16,7 +16,7 @@ namespace LAB_1_PER_3
     {
         string name = "Flower";
         Color color = Color.Red;
-        double state = 1, fadingInWater = 1, fadingInAir = 1, basePrice = 0;
+        double state = 1, fadingInWater = 1, fadingInAir = 1, basePrice = 1 ;
         bool inWater = false;
 
 
@@ -88,7 +88,7 @@ namespace LAB_1_PER_3
         public bool InWater
         {
             get => inWater;
-            set { inWater = value; }
+            set => inWater = value; 
         }
         public double RealPrice() => BasePrice * state;
 
