@@ -19,7 +19,7 @@ namespace LAB_1_PER_3
             }
          
 
-            /*string forColor;
+            string forColor;
             int _color;
 
             string forInAir, forInWater;
@@ -115,7 +115,7 @@ namespace LAB_1_PER_3
 
             Console.WriteLine("Сдвиг внутренних часов на 4");
             flower.MoveInnerClock(4);
-            Print();*/
+            Print();
 
 
 
@@ -148,13 +148,13 @@ namespace LAB_1_PER_3
             {
                 string _forName;
                 string _forColor;
-                int __color;
+                int color_;
 
                 string _forInAir, _forInWater;
-                int __inAir, __inWater;
+                int inAir_,inWater_;
 
                 string _forBasePrice;
-                double __basePrice;
+                double basePrice_;
                 
                 while (true)
                 {
@@ -177,64 +177,64 @@ namespace LAB_1_PER_3
 
                     Console.Write("Введите цвет (0 - Красный, 1 - Зеленый, 2 - Синий): ");
                     do _forColor = Console.ReadLine();
-                    while (!int.TryParse(_forColor, out __color));
+                    while (!int.TryParse(_forColor, out color_));
                     ToContinue();
 
                     Console.Write("Введите количество часов, через которые цветок завянет на воздухе: ");
                     do _forInAir = Console.ReadLine();
-                    while (!int.TryParse(_forInAir, out __inAir));
+                    while (!int.TryParse(_forInAir, out inAir_));
                     try
                     {
-                        _flower.FadingInAir = __inAir;
+                        _flower.FadingInAir = inAir_;
                     }
                     catch (ArgumentException e)
                     {
-                        __inAir = (int)_flower.FadingInAir;
+                        inAir_ = (int)_flower.FadingInAir;
                         Console.WriteLine(e.Message);
                     }
                     finally
                     {
-                        _flower.FadingInAir = __inAir;
+                        _flower.FadingInAir = inAir_;
                     }
                     ToContinue();
 
                     Console.Write("Введите количество часов, через которые цветок завянет в воде: ");
                     do _forInWater = Console.ReadLine();
-                    while (!int.TryParse(_forInWater, out __inWater));
+                    while (!int.TryParse(_forInWater, out inWater_));
                     try
                     {
-                        _flower.FadingInWater = __inWater;
+                        _flower.FadingInWater = inWater_;
                     }
                     catch (ArgumentException e)
                     {
-                        __inWater = (int)_flower.FadingInWater;
+                        inWater_ = (int)_flower.FadingInWater;
                         Console.WriteLine(e.Message);
                     }
                     finally
                     {
-                        _flower.FadingInWater = __inWater;
+                        _flower.FadingInWater = inWater_;
                     }
                     ToContinue();
 
                     Console.Write("Введите базовую цену: ");
                     do _forBasePrice = Console.ReadLine();
-                    while (!double.TryParse(_forBasePrice, out __basePrice));
+                    while (!double.TryParse(_forBasePrice, out basePrice_));
                     try
                     {
-                        _flower.BasePrice = __basePrice;
+                        _flower.BasePrice = basePrice_;
                     }
                     catch (ArgumentException e)
                     {
-                        __basePrice = _flower.BasePrice;
+                        basePrice_ = _flower.BasePrice;
                         Console.WriteLine(e.Message);
                     }
                     finally
                     {
-                        _flower.BasePrice = __basePrice;
+                        _flower.BasePrice = basePrice_;
                     }
                     ToContinue();
 
-                    bouquet.AddFlower(_forName, (Color)(__color % 3), __inAir, __inWater, __basePrice);
+                    bouquet.AddFlower(_forName, (Color)(color_ % 3), inAir_, inWater_, basePrice_);
                     break;
 
                 }
@@ -258,7 +258,7 @@ namespace LAB_1_PER_3
             PrintForBouquet();
 
             Console.WriteLine("Сдвигаем часы:");
-            bouquet.MoveInnerClock(5);
+            bouquet.MoveInnerClock(4);
             bouquet.PrintBouguet();
             PrintForBouquet();
 

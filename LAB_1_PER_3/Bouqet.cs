@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LAB_1_PER_3
 {
-    internal class Bouqet
+    public class Bouqet
     {
         private List<Flower> flowers = new List<Flower>();
         public void AddFlower(string name, Color color, int hoursInAir, int hoursInWater, double basePrice)
